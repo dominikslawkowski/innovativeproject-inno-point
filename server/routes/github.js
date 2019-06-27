@@ -97,7 +97,7 @@ const gitHubRoutes = app => {
                   );
                 } else {
                   res.cookie("token", token);
-                  res.redirect(`${appUrl}/dashboard/projects?token=${token}`);
+                  res.redirect(`${appUrl}/loading?token=${token}`);
                 }
               })
               .catch(error => {
@@ -109,8 +109,6 @@ const gitHubRoutes = app => {
       });
     }
   });
-
-  app.get("/", (req, res) => {});
 
   app.post("/github/createRepo", (req, res) => {
     const data = {

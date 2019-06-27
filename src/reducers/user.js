@@ -27,7 +27,8 @@ const usersReducer = createReducer(user, {
       email,
       team_id,
       token,
-      role
+      role,
+      bio
     } = action.payload;
     return produce(state, draft => {
       draft.isFetching = false;
@@ -39,6 +40,7 @@ const usersReducer = createReducer(user, {
       draft.team_id = team_id;
       draft.token = token;
       draft.role = role;
+      draft.bio = bio;
     });
   },
   [AT.USER_READ_FAILURE]: (state, action) => {

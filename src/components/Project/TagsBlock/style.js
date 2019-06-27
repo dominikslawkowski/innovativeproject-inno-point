@@ -33,16 +33,18 @@ export const Container = styled.div`
     }
 
     div.TagsContainer {
-      /* display: grid;
-      grid-gap: 10px;
+      display: flex;
+      /* grid-gap: 10px;
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: 50px; */
+      flex-wrap: wrap;
     }
   }
 `;
 
 export const Technology = styled.span`
   cursor: pointer;
+  height: 30px;
   font-size: 22px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: ${({ theme_color }) => (theme_color ? theme_color : "black")};
@@ -52,6 +54,7 @@ export const Technology = styled.span`
   border: solid 1px
     ${({ theme_color }) =>
       theme_color ? Color(theme_color).lighten(0.2) : "black"};
+  margin: 5px;
 `;
 
 export const Panel = styled.div`

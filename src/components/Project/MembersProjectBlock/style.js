@@ -39,7 +39,7 @@ export const Container = styled.div`
       margin: 10px;
       align-items: center;
       display: grid;
-      grid-template: "icon" 80px "name" 20px;
+      grid-template: "icon" 80px "name" 30px;
 
       > div.Data {
         text-align: center;

@@ -4,7 +4,6 @@ const UserModel = require("../models/user");
 const TeamModel = require("../models/team");
 const ProjectModel = require("../models/project");
 const NewsModel = require("../models/news");
-const ReportModel = require("../models/report");
 
 const sequelize = new Sequelize(config.database, config.user, config.password, {
   host: config.host,
@@ -16,7 +15,6 @@ const User = UserModel(sequelize, Sequelize);
 const Team = TeamModel(sequelize, Sequelize);
 const Project = ProjectModel(sequelize, Sequelize);
 const News = NewsModel(sequelize, Sequelize);
-const Report = ReportModel(sequelize, Sequelize);
 
 sequelize
   .authenticate()
@@ -27,4 +25,8 @@ sequelize
     console.error("Unable to connect to the database:", err);
   });
 
-module.exports = { User, Team, Project, News, sequelize, Report };
+
+module.exports = { User, Team, Project, News , sequelize };
+
+
+

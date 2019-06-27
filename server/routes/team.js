@@ -215,40 +215,6 @@ const teamRoutes = app => {
     }
   });
 
-  app.put("/teams/:id/leave", (req, res) => {
-    if (req.body.token) {
-      jwt.verify(req.body.token, config.jwt.secretkey, (err, authData) => {
-        if (err) {
-          res.sendStatus(403);
-        } else {
-          const user_id = authData.id;
-          clearanceCheck.isDeveloperOnly(user_id).then(result => {
-            if (result == false) res.sendStatus(403);
-            else {
-              User.findAll({
-                where: { id: user_id }
-              }).then(result => {
-                if (JSON.stringify(result[0].dataValues.team_id) != "null") {
-                  User.update(
-                    { team_id: null },
-                    {
-                      where: { id: user_id }
-                    }
-                  ).then(() => res.sendStatus(200));
-                } else {
-                  console.log("you don't have a team");
-                  res.sendStatus(500);
-                }
-              });
-            }
-          });
-        }
-      });
-    } else {
-      req.sendStatus(403);
-    }
-  });
-
   app.put("/teams/:id/status", (req, res) => {
     if (req.body.token) {
       const id = parseInt(req.params.id);

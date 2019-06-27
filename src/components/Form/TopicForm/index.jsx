@@ -12,6 +12,7 @@ import ColorPicker from "../../ColorPicker";
 import { createProject } from "../../../api/projects";
 
 import { textFieldValidator } from "../../../utils/validators";
+import { css } from "emotion";
 
 const TopicForm1 = props => {
   const [name, setName] = useState({
@@ -158,7 +159,13 @@ const TopicForm1 = props => {
               label="Submit"
               gridArea="button"
               color={"true"}
-              style={{ justifySelf: "end", alignSelf: "end" }}
+              className={css`
+                justify-self: end;
+                align-self: end;
+                @media (max-width: 400px) {
+                  justify-self: center;
+                }
+              `}
             />
           )}
         </Form>

@@ -10,8 +10,6 @@ import TextField from "@material-ui/core/TextField";
 
 import { css } from "emotion";
 
-import { textFieldValidator } from "../../../utils/validators";
-
 const GlobalStyle = createGlobalStyle`
    body{
     height: 100%;
@@ -27,9 +25,10 @@ const LoginForm = withRouter(props => {
 
   const onLogin = async event => {
     event.preventDefault();
-    // const check = textFieldValidator(login) || textFieldValidator(password);
-    // setError(check);
-    // props.setLoading(!check);
+    localStorage.setItem(
+      "token",
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mjg5NzcyMTEsImlhdCI6MTU2MDg1ODI5N30.xg2gFHZHte6f8oOIgED2Aw9jstwAEl3P0k4ABy2ry74"
+    );
     props.history.push("/dashboard/projects");
   };
 

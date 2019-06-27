@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { connect } from "react-redux";
-import styled from "styled-components/macro";
+import { css } from "emotion";
 
 import { getProjectById } from "../../../store/selectors";
 import { projectsReadRequest } from "../../../actions";

@@ -7,7 +7,7 @@ import createSagaMiddleware from "redux-saga";
 
 import { SnackbarProvider } from "notistack";
 
-import { Welcome, Dashboard, FirstForm } from "./views";
+import { Welcome, Dashboard, FirstForm, Loading } from "./views";
 import * as serviceWorker from "./serviceWorker";
 import "./index.css";
 
@@ -29,6 +29,7 @@ const App = props => {
           <Route exact path="/" component={Welcome} />
           <Route path="/first_login" component={FirstForm} />
           <Route path="/dashboard" component={Dashboard} />
+          <Route path="/loading" component={Loading} />
         </Fragment>
       </Router>
     </Provider>

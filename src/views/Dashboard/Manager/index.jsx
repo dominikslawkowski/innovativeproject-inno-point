@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import styled, { keyframes } from "styled-components";
-import { getUnverifiedProjects } from "../../../store/selectors";
-import { projectsReadRequest } from "../../../actions";
-
-import InputBase from "@material-ui/core/InputBase";
-import SearchIcon from "@material-ui/icons/Search";
+import {
+  projectsReadRequest,
+  teamsReadRequest,
+  userReadRequest,
+  usersReadRequest
+} from "../../../actions";
 import { Dvr } from "@material-ui/icons";
 
-import { ProjectCard } from "../../../components";
+import { css } from "emotion";
+
+import { ProjectCard, TeamCard } from "../../../components";
 
 export const Label = styled.div`
   display: flex;
@@ -76,10 +79,12 @@ export const TopBar = styled.div`
 const Manager = props => {
   const [update, setUpdate] = useState(false);
   const [inputValue, setInputValue] = useState("");
-  let { projects } = props;
+  let { projects, teams, user, users } = props;
 
   useEffect(() => {
     props.readProjects();
+    props.readTeams();
+    props.readUser();
   }, [update]);
 
   //   if (!projects || projects.length === 0) {
@@ -90,6 +95,14 @@ const Manager = props => {
     projects = projects.filter(project => project.name.includes(inputValue));
   }
 
+  const team = teams.find(e => e.id === user.team_id) || {};
+  let project = {};
+  let teamUsers = [];
+  if (team) {
+    project = projects.find(e => e.id === team.project_id);
+    teamUsers = users.filter(user => user.team_id === team.id);
+  }
+
   return (
     <div>
       <TopBar>
@@ -97,24 +110,71 @@ const Manager = props => {
           <Dvr />
           <span>Manager</span>
         </Label>
-        <div className="Searchbar">
-          <InputBase placeholder="Search…" style={{ width: "100%" }} />
-          <SearchIcon />
-        </div>
       </TopBar>
+      <div
+        className={css`
+          margin-top: 100px;
+          margin-left: 100px;
+          margin-right: 100px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        `}
+      >
+        {project && Object.keys(project).length > 0 && (
+          <div
+            className={css`
+              text-decoration: none;
+              margin: 20px;
+            `}
+          >
+            <ProjectCard
+              team={team}
+              users={teamUsers}
+              project={project}
+              index={1}
+            />
+          </div>
+        )}
+        {team && Object.keys(team).length > 0 && (
+          <div
+            className={css`
+              text-decoration: none;
+              margin: 20px;
+              width: 350px;
+            `}
+          >
+            <TeamCard
+              team={team}
+              users={teamUsers}
+              project={project}
+              index={1}
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 };
 
 const mapStateToProps = state => {
-  const unverifiedProjects = getUnverifiedProjects(state);
+  const projects = state.projects.items;
+  const teams = state.teams.items;
+  const user = state.user;
+  const users = state.users.items;
   return {
-    projects: unverifiedProjects
+    projects,
+    teams,
+    user,
+    users
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  readProjects: () => dispatch(projectsReadRequest())
+  readProjects: () => dispatch(projectsReadRequest()),
+  readTeams: () => dispatch(teamsReadRequest()),
+  readUser: () => dispatch(userReadRequest()),
+  readUsers: () => dispatch(usersReadRequest())
 });
 
 export default connect(

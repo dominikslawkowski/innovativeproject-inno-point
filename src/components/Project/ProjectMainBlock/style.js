@@ -22,6 +22,10 @@ export const Container = styled.div`
   /* margin-top: var(--blockMargin); */
   animation: ${show} 0.3s;
 
+  @media (max-width: 400px) {
+    grid-template: "panel";
+  }
+
   div.Main {
     background-color: white;
     display: grid;
@@ -31,10 +35,18 @@ export const Container = styled.div`
     padding-bottom: 60px;
     border-radius: 8px;
 
+    @media (max-width: 400px) {
+      padding: 10;
+      grid-template: "name" 40px "desc";
+    }
+
     div.Name {
       letter-spacing: 3px;
       border-bottom: solid 1px hsl(0, 0%, 90%);
       font-size: 45px;
+      @media (max-width: 400px) {
+        font-size: 30px;
+      }
     }
 
     div.Desc {
@@ -51,6 +63,11 @@ export const Container = styled.div`
         margin-right: 5px;
         border-right: 1px solid black;
         color: black;
+      }
+
+      @media (max-width: 400px) {
+        font-size: 14px;
+        padding-right: 0;
       }
     }
 
@@ -75,4 +92,8 @@ export const Panel = styled.div`
       : "var(--gradientLeft1)"};
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
+
+  @media (max-width: 400px) {
+    display: none;
+  }
 `;

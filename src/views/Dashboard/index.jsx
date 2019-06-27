@@ -24,17 +24,16 @@ import Manager from "./Manager";
 import { Container } from "./style";
 
 const Dashboard = props => {
-  const urlParams = new URLSearchParams(window.location.search);
-  const params = {
-    token: urlParams.get("token")
-  };
+  // const urlParams = new URLSearchParams(window.location.search);
+  // const params = {
+  //   token: urlParams.get("token")
+  // };
 
   const { readProjects, readTeams, readUsers, readUser, readNews } = props;
 
   useEffect(() => {
-    if (params.token) {
-      localStorage.setItem("token", params.token);
-    } else if (!localStorage.getItem("token")) {
+    if (!localStorage.getItem("token")) {
+      console.log("elo dash");
       props.history.push("/");
     }
     readProjects();

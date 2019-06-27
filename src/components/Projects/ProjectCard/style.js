@@ -27,6 +27,11 @@ export const Element = styled.div`
     min-height: 160px;
   }
 
+  @media (max-width: 400px) {
+    margin-left: 10px;
+    margin-right: 20px;
+  }
+
   :hover {
     box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.2);
   }
@@ -54,7 +59,7 @@ export const Element = styled.div`
     }
 
     @media (max-width: 460px) {
-      grid-template: "name name" 15px ". ." 10px / 5fr 1fr;
+      grid-template: "name name" 15px / 5fr 1fr;
     }
 
     div.Name {

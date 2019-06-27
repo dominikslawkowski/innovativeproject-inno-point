@@ -1,4 +1,6 @@
 export default {
-  api: "https://dominikslawkowski-innovativeproject-inno-point-1.glitch.me/",
-  app: "https://nervous-carson-e2cb2e.netlify.com/"
+  // api: "http://localhost:3030",
+  // app: "http://localhost:3000",
+  api: "http://192.168.0.2:3030",
+  app: "http://192.168.0.2:3000"
 };

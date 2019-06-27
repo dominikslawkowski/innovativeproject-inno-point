@@ -1,6 +1,4 @@
 import styled, { keyframes } from "styled-components";
-import AddIcon from "@material-ui/icons/Add";
-import Fab from "@material-ui/core/Fab";
 import Tooltip from "@material-ui/core/Tooltip";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import { Spinner } from "../../../components";
@@ -19,8 +17,6 @@ export const Label = styled.div`
   margin-top: 65px;
   font-size: 24px;
   color: hsl(0, 0%, 50%);
-  /* background-color: white; */
-  /* border: solid 1px hsl(0, 0%, 80%); */
   border-radius: 8px;
   padding: 7px;
 
@@ -30,6 +26,10 @@ export const Label = styled.div`
   }
 
   > div > span {
+    margin-left: 10px;
+  }
+
+  @media (max-width: 400px) {
     margin-left: 10px;
   }
 

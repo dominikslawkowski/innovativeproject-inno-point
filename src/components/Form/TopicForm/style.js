@@ -22,8 +22,19 @@ export const Container = styled.div`
   animation: ${show} 0.5s;
   transition: all 0.2s ease-in-out;
 
+  @media (max-width: 400px) {
+    width: 280px;
+    height: 750px;
+
+    grid-template: "form";
+  }
+
   div.Panel {
     background: var(--gradientTop1);
+
+    @media (max-width: 400px) {
+      display: none;
+    }
   }
 
   div.FormContainer {
@@ -45,6 +56,18 @@ export const Form = styled.form`
     / 3fr 2fr;
   grid-gap: 20px;
   background-color: transparent;
+
+  @media (max-width: 400px) {
+    grid-template:
+      "title" 35px
+      "name" 55px
+      "number" 55px
+      "desc" 170px
+      "colors" 170px
+      "chips" 70px
+      "button" auto;
+    grid-gap: 20px;
+  }
 
   div.Title {
     width: 100%;

@@ -41,6 +41,10 @@ import { css } from "emotion";
 
 const labelStyle = (type, currType) => css`
   color: ${type === currType ? "#00336e" : "hsl(0, 0%, 75%)"};
+  user-select: none;
+  @media (max-width: 400px) {
+    display: none;
+  }
 `;
 
 const containerLabelStyle = (type, currType) => css`
@@ -190,7 +194,6 @@ const Projects = props => {
             open={open}
             TransitionComponent={Transition}
             keepMounted
-            maxWidth={false}
             onClose={handleClose}
           >
             <TopicForm

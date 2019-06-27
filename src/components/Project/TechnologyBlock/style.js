@@ -36,14 +36,16 @@ export const Container = styled.div`
 
 export const TechContainer = styled.span`
   cursor: pointer;
-  /* display: grid;
-  grid-gap: 10px;
+  display: flex;
+  /* grid-gap: 10px;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 50px; */
+  flex-wrap: wrap;
 `;
 
 export const Technology = styled.span`
   font-size: 22px;
+  height: 30px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: ${({ theme_color }) => (theme_color ? theme_color : "black")};
   padding: 10px;
@@ -52,6 +54,7 @@ export const Technology = styled.span`
   border: solid 1px
     ${({ theme_color }) =>
       theme_color ? Color(theme_color).lighten(0.2) : "black"};
+  margin: 5px;
 `;
 
 export const Panel = styled.div`

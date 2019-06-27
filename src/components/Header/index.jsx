@@ -18,10 +18,10 @@ export default withRouter(props => {
       <div className="Top">
         <img src="/icons/logo.png" />
       </div>
-      <StyledLink to="/dashboard/manager" pathname={pathname}>
+      {/* <StyledLink to="/dashboard/manager" pathname={pathname}>
         <Dvr style={iconStyle} />
         <span>Manager</span>
-      </StyledLink>
+      </StyledLink> */}
       <StyledLink to="/dashboard/projects" pathname={pathname}>
         <ViewList style={iconStyle} />
         <span>Projects</span>
@@ -34,6 +34,7 @@ export default withRouter(props => {
         <Announcement style={iconStyle} />
         <span>News</span>
       </StyledLink>
+      <div />
       <div />
       <StyledLink to="/dashboard/profile" pathname={pathname}>
         <AccountCircle style={iconStyle} />

@@ -97,6 +97,7 @@ export default withSnackbar(
         props.enqueueSnackbar("We are completing your profile.", {
           variant: "info"
         });
+
         axios
           .put(`${config.api}/user/updateInfo`, {
             token: params.token,
@@ -109,7 +110,7 @@ export default withSnackbar(
               variant: "success"
             });
             setLoading(false);
-            props.history.push("/dashboard/projects");
+            props.history.push("/loading");
           })
           .catch(() => {
             props.enqueueSnackbar("Something goes wrong :(", {
