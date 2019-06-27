@@ -1,4 +1,4 @@
 export default {
-  api: "http://localhost:3030",
-  app: "http://localhost:3000"
+  api: "https://dominikslawkowski-innovativeproject-inno-point-1.glitch.me/",
+  app: "https://nervous-carson-e2cb2e.netlify.com/"
 };
