@@ -31,6 +31,12 @@ const Form = styled.form`
   box-shadow: 0px 0px 150px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
 
+  @media (max-width: 400px) {
+    margin-left: 15px;
+    margin-right: 15px;
+    grid-template: "label" 50px "." 1px "name" "surname" "." "email" "." "email2" "button" auto;
+  }
+
   a.SingIn {
     grid-area: singin;
     color: #203870;
@@ -49,6 +55,9 @@ const containerStyle = css`
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
   background: url("photos/bcg-new.png");
+  @media (max-width: 400px) {
+    background: none;
+  }
   background-position: center;
   background-size: 100% 100%;
   background-color: hsl(0, 0%, 90%);
@@ -62,8 +71,11 @@ export default withSnackbar(
   withRouter(props => {
     const urlParams = new URLSearchParams(window.location.search);
     const params = {
-      name: urlParams.get("name"),
-      email: urlParams.get("email"),
+      name: urlParams.get("name") !== "null" ? urlParams.get("name") : "",
+      email:
+        urlParams.get("email") !== "null"
+          ? urlParams.get("email") !== "null"
+          : "",
       token: urlParams.get("token")
     };
 
@@ -144,7 +156,6 @@ export default withSnackbar(
             error={error}
             className={css`
               grid-area: name;
-              width: 200px;
             `}
           />
           <TextField
@@ -155,7 +166,6 @@ export default withSnackbar(
             error={error}
             className={css`
               grid-area: surname;
-              width: 200px;
             `}
           />
           <TextField
@@ -166,7 +176,6 @@ export default withSnackbar(
             error={error}
             className={css`
               grid-area: email;
-              width: 410px;
             `}
           />
           <TextField
@@ -177,7 +186,6 @@ export default withSnackbar(
             error={error}
             className={css`
               grid-area: email2;
-              width: 410px;
             `}
           />
           {loading ? (

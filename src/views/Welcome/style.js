@@ -12,12 +12,18 @@ export const Container = styled.div`
   background-color: hsl(0, 0%, 90%);
   transition: background 2s ease-in-out;
 
+  > img {
+    display: none;
+  }
+
   @media (max-width: 1000px) {
     background: none;
   }
 
   @media (max-width: 400px) {
     background: none;
-    background-color: #00438b;
+    > img {
+      display: block;
+    }
   }
 `;

@@ -29,12 +29,19 @@ export const Container = styled.div`
       letter-spacing: 1px;
       border-bottom: solid 1px hsl(0, 0%, 90%);
       font-size: 25px;
+      @media (max-width: 400px) {
+        font-size: 20px;
+      }
     }
 
     div.Info {
       color: gray;
       padding-right: 30%;
       font-size: 20px;
+
+      @media (max-width: 400px) {
+        font-size: 16px;
+      }
     }
   }
 `;

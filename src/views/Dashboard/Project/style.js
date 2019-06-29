@@ -14,6 +14,6 @@ export const MainContainer = styled.div`
   grid-template: "back back" "main main" "members members" "goals scopes" "techno tags" "verify delete" "apply ." / 50% 50%;
   @media (max-width: 400px) {
     padding: 20px;
-    grid-template: "back" "main" "members" "goals" "scopes" "techno" "tags" "verify" "delete" "apply";
+    grid-template: "back" "main" "goals" "scopes" "techno" "tags" "verify" "delete" "apply";
   }
 `;

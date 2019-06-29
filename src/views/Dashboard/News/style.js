@@ -37,6 +37,10 @@ export const Label = styled.div`
   padding: 7px;
   padding-bottom: 10px;
 
+  @media (max-width: 400px) {
+    display: none;
+  }
+
   > span {
     margin-left: 10px;
   }
@@ -51,6 +55,10 @@ export const TopBar = styled.div`
   justify-content: flex-end;
   align-items: center;
   padding: 5px;
+
+  @media (max-width: 400px) {
+    display: none;
+  }
 
   > div.Searchbar {
     margin-top: 50px;
@@ -68,6 +76,10 @@ export const TopBar = styled.div`
 
     @media (max-width: 500px) {
       width: 150px;
+    }
+
+    @media (max-width: 400px) {
+      display: none;
     }
 
     > input {

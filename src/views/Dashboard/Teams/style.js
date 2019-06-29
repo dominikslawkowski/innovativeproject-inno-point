@@ -27,6 +27,9 @@ export const Label = styled.div`
   border-radius: 8px;
   padding: 7px;
   padding-bottom: 10px;
+  @media (max-width: 400px) {
+    display: none;
+  }
 
   > span {
     margin-left: 5px;
@@ -107,9 +110,9 @@ export const TopBar = styled.div`
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
     transition: all 0.1s ease-in-out;
 
-    @media (max-width: 500px) {
+    /* @media (max-width: 500px) {
       width: 150px;
-    }
+    } */
 
     > input {
       width: 250px;

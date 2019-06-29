@@ -19,6 +19,10 @@ export const Element = styled.div`
   transition: all 0.1s ease-in-out;
   background-color: white;
 
+  @media (max-width: 400px) {
+    width: 270px;
+  }
+
   @media (min-width: 700px) {
     min-height: 192px;
   }

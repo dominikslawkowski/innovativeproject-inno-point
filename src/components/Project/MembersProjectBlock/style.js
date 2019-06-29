@@ -19,6 +19,10 @@ export const Container = styled.div`
   animation: ${show} 0.3s;
   background-color: white;
 
+  @media (max-width: 400px) {
+    display: none;
+  }
+
   > div.Panel {
     width: 150px;
     height: 100%;

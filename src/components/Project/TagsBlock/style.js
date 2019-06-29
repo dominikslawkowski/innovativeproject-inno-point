@@ -55,6 +55,11 @@ export const Technology = styled.span`
     ${({ theme_color }) =>
       theme_color ? Color(theme_color).lighten(0.2) : "black"};
   margin: 5px;
+
+  @media (max-width: 400px) {
+    font-size: 16px;
+    height: 20px;
+  }
 `;
 
 export const Panel = styled.div`

@@ -2,15 +2,9 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import styled, { keyframes } from "styled-components";
 import { projectsReadRequest } from "../../../actions";
-
-import InputBase from "@material-ui/core/InputBase";
-import SearchIcon from "@material-ui/icons/Search";
 import { AccountCircle } from "@material-ui/icons";
 
-import { ProjectCard } from "../../../components";
-
 import { iconStyle, tableStyle, Container, Picture } from "./style";
-import { Person } from "@material-ui/icons";
 
 import { css } from "emotion";
 
@@ -25,6 +19,10 @@ export const Label = styled.div`
   border-radius: 8px;
   padding: 7px;
   padding-bottom: 10px;
+
+  @media (max-width: 400px) {
+    display: none;
+  }
 
   > span {
     margin-left: 10px;
@@ -104,6 +102,13 @@ const Profile = props => {
           display: grid;
           grid-template: "icon icon" 150px "name name" 30px "email email" "desc desc" "border border" 1px "role role";
           grid-gap: 5px;
+
+          @media (max-width: 400px) {
+            width: 230px;
+            height: 300px;
+            margin-left: 15px;
+            margin-right: 15px;
+          }
         `}
       >
         {user.github_picture ? (

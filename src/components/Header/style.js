@@ -19,6 +19,10 @@ export const Container = styled.header`
   box-shadow: 0px 0px 150px rgba(0, 0, 0, 0.25);
   animation: ${show} 0.5s;
 
+  @media (max-width: 400px) {
+    /* grid-template-rows: 50px repeat(4, 35px) auto repeat(2, 35px) 100px; */
+  }
+
   img.Title {
     margin: 10px;
   }

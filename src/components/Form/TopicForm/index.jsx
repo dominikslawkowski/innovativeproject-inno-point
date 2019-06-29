@@ -75,7 +75,7 @@ const TopicForm1 = props => {
         const { setUpdate, update } = props;
         setUpdate(!update);
         props.handleClose();
-        props.enqueueSnackbar("Topic has been sent to verify!", {
+        props.enqueueSnackbar("Project has been sent to verify!", {
           variant: "info"
         });
         resetValues();

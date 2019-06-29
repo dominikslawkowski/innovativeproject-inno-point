@@ -1,7 +1,5 @@
 import styled, { keyframes } from "styled-components";
 
-import Color from "color";
-
 const show = keyframes`
   from {
     transform: scale(0.8);

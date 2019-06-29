@@ -18,10 +18,6 @@ export default withRouter(props => {
       <div className="Top">
         <img src="/icons/logo.png" />
       </div>
-      {/* <StyledLink to="/dashboard/manager" pathname={pathname}>
-        <Dvr style={iconStyle} />
-        <span>Manager</span>
-      </StyledLink> */}
       <StyledLink to="/dashboard/projects" pathname={pathname}>
         <ViewList style={iconStyle} />
         <span>Projects</span>

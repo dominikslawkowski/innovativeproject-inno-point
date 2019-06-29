@@ -84,6 +84,11 @@ const News = props => {
           margin-right: 25vw;
           margin-top: 50px;
           margin-bottom: 100px;
+
+          @media (max-width: 400px) {
+            margin-left: 20px;
+            margin-right: 20px;
+          }
         `}
       >
         {sortedNews.map((e, i) => {
@@ -111,6 +116,10 @@ const News = props => {
                   display: grid;
                   grid-template: "user title date" 50px "border border border" 1px "body body body" "info info info" / 50px 1fr 1fr;
                   grid-gap: 10px;
+
+                  @media (max-width: 400px) {
+                    width: 230px;
+                  }
                 `}
               >
                 <div
@@ -144,7 +153,6 @@ const News = props => {
                 >
                   {e.body}
                 </div>
-                {console.log(post_user.name)}
                 {post_user.name !== "InnoBot" && (
                   <Fragment>
                     <div
@@ -241,6 +249,10 @@ const News = props => {
                     justify-self: end;
                     align-self: center;
                     color: hsl(0, 0%, 65%);
+
+                    @media (max-width: 400px) {
+                      display: none;
+                    }
                   `}
                 >
                   {e.date}
@@ -253,38 +265,43 @@ const News = props => {
                 />
               </div>
               {props.user.role === "ADMIN" && (
-                <Fragment>
-                  <StyledTooltip
-                    title={"Add post"}
-                    aria-label="Add"
-                    onClick={() => {
-                      handleClickOpen();
-                    }}
-                  >
-                    <Link to="#">
-                      <Fab style={fabAddStyle}>
-                        <AddIcon style={iconAddStyle} />
-                      </Fab>
-                    </Link>
-                  </StyledTooltip>
-                  <Dialog
-                    open={open}
-                    TransitionComponent={Transition}
-                    keepMounted
-                    maxWidth={false}
-                    onClose={handleClose}
-                  >
-                    <PostForm
-                      setUpdate={setUpdate}
-                      update={update}
-                      handleClose={handleClose}
-                    />
-                  </Dialog>
-                </Fragment>
+                <div
+                  className={css`
+                    @media (max-width: 400px) {
+                      display: none;
+                    }
+                  `}
+                />
               )}
             </div>
           );
         })}
+        <StyledTooltip
+          title={"Add post"}
+          aria-label="Add"
+          onClick={() => {
+            handleClickOpen();
+          }}
+        >
+          <Link to="#">
+            <Fab style={fabAddStyle}>
+              <AddIcon style={iconAddStyle} />
+            </Fab>
+          </Link>
+        </StyledTooltip>
+        <Dialog
+          open={open}
+          TransitionComponent={Transition}
+          keepMounted
+          maxWidth={false}
+          onClose={handleClose}
+        >
+          <PostForm
+            setUpdate={setUpdate}
+            update={update}
+            handleClose={handleClose}
+          />
+        </Dialog>
       </div>
     </div>
   );

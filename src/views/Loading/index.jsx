@@ -46,7 +46,7 @@ const Welcome = withRouter(props => {
       readUser();
       setTimeout(() => {
         props.history.push("/dashboard/projects");
-      }, 1500);
+      }, 1700);
     } else if (!token) {
       props.history.push("/");
     }

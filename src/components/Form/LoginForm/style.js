@@ -95,5 +95,7 @@ export const Form = styled.form`
   @media (max-width: 400px) {
     background-color: white;
     border-radius: 8px;
+
+    grid-template: "email" 50px "pass" 50px "button" auto "github" 35px "space" 7px / 300px;
   }
 `;

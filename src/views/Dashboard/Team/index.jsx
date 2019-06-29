@@ -27,7 +27,12 @@ const MainContainer = styled.div`
   padding: 100px;
   display: grid;
   grid-gap: 15px;
-  grid-template: "btn btn" 20px "main main" 170px "members members" "status join" ". delete"/ 1fr 1fr;
+  grid-template: "btn btn" 20px "main main" 170px "members members" 130px "status join" ". delete"/ 1fr 1fr;
+
+  @media (max-width: 400px) {
+    grid-template: "btn" 60px "main" 170px "status" "join" "delete";
+    padding: 15px;
+  }
 `;
 
 const show = keyframes`
@@ -63,6 +68,10 @@ export const Container = styled.div`
     height: 100%;
     display: flex;
     justify-content: space-around;
+
+    @media (max-width: 400px) {
+      display: none;
+    }
 
     > div.Member {
       align-items: center;
@@ -118,6 +127,8 @@ const Team = props => {
           background-color: white !important;
           color: #00336e;
           grid-area: btn;
+          margin-bottom: 20px;
+          margin-top: 20px;
         `}
       />
       <div
@@ -201,11 +212,18 @@ const Team = props => {
         </div>
       </div>
       {members && members.length > 0 ? (
-        <Container gridArea={"members"}>
+        <Container
+          gridArea={"members"}
+          className={css`
+            @media (max-width: 400px) {
+              display: none;
+            }
+          `}
+        >
           <div className="MembersContainer">
             {members &&
               members.map((element, index) => {
-                const { name, surname, id } = element;
+                const { name, id } = element;
                 return (
                   <div className="Member">
                     {element.github_picture ? (
@@ -233,7 +251,6 @@ const Team = props => {
       {leader.id === user.id && (
         <StatusTeamBlock
           id={id}
-          // gridArea="status"
           status={team.open === 1 ? "open" : "closed"}
           makeUpdate={makeUpdate}
         />
@@ -245,7 +262,6 @@ const Team = props => {
           <JoinTeamBlock
             id={id}
             belong={user.team_id === team.id}
-            // gridArea="join"
             makeUpdate={makeUpdate}
             freeSpot={team.max_number_of_members > members.length}
           />
@@ -254,7 +270,6 @@ const Team = props => {
         <div
           className={css`
             width: 100%;
-            /* grid-area: delete; */
           `}
         >
           <DeleteTeamBlock id={id} />

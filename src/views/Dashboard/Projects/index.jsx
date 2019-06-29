@@ -135,9 +135,9 @@ const Projects = props => {
             onChange={e => setInputValue(e.target.value)}
           />
           <SearchIcon
-            onClick={() => {
-              props.createProject();
-            }}
+          // onClick={() => {
+          //   props.createProject();
+          // }}
           />
         </div>
       </TopBar>

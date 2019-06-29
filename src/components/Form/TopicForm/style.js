@@ -13,8 +13,9 @@ const show = keyframes`
 `;
 
 export const Container = styled.div`
-  width: 950px;
+  width: 950px !important;
   height: 550px;
+  max-width: none !important;
   display: grid;
   grid-template: "panel form" / 170px auto;
   box-shadow: 0px 0px 150px rgba(0, 0, 0, 0.25);
