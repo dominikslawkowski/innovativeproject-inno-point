@@ -25,10 +25,6 @@ const LoginForm = withRouter(props => {
 
   const onLogin = async event => {
     event.preventDefault();
-    localStorage.setItem(
-      "token",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mjg5NzcyMTEsImlhdCI6MTU2MDg1ODI5N30.xg2gFHZHte6f8oOIgED2Aw9jstwAEl3P0k4ABy2ry74"
-    );
     props.history.push("/dashboard/projects");
   };
 
