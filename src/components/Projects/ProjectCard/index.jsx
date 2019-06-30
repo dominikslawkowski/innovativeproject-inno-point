@@ -17,6 +17,7 @@ export default ({ project, index }) => (
               className={css`
                 grid-area: desc;
                 font-size: 13px;
+                color: gray;
               `}
             >
               {project.short_description.length <= 35
