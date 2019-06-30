@@ -11,6 +11,7 @@ const show = keyframes`
 export const Container = styled.header`
   position: fixed;
   width: var(--headerWidth);
+  font-size: 13px;
   grid-area: header;
   height: 100vh;
   display: grid;

@@ -12,7 +12,13 @@ export default ({ project, index }) => (
         {project && (
           <Fragment>
             <div className="Name">{project.name}</div>
-            <div className="Desc">
+            <div
+              className="Desc"
+              className={css`
+                grid-area: desc;
+                font-size: 13px;
+              `}
+            >
               {project.short_description.length <= 35
                 ? project.short_description
                 : project.short_description.slice(0, 35) + "..."}
