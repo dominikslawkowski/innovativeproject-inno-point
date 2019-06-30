@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Element, Tag, Panel } from "./style";
 import { VerifiedUser, Schedule } from "@material-ui/icons";
-
+import { css } from "emotion";
 import { Link } from "react-router-dom";
 
 export default ({ project, index }) => (
